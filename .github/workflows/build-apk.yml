@@ -13,7 +13,9 @@ jobs:
 
       - name: Preparar projeto
         run: |
-          unzip -q CombateAndroid_Projeto.zip
+          ZIP=$(find . -maxdepth 1 -type f -iname "*.zip" | head -n 1)
+echo "Arquivo encontrado: $ZIP"
+unzip -q "$ZIP"
           cd CombateAndroid
           chmod +x gradlew 2>/dev/null || true
 
